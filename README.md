@@ -1,29 +1,54 @@
 # EA Tool
 
-LeanIX-inspired lightweight enterprise architecture tool designed to run locally and on Azure free tier.
+LeanIX-inspired lightweight enterprise architecture tool designed to run locally with a simple Node-based scaffold.
 
-## Goals
-- Fact sheet-centric EA inventory
-- Configurable meta model
-- Relationship graph
-- Plug-in dashboards
-- Local-first development with Azure-friendly deployment
+## Structure
+- `client/` — React + Vite frontend
+- `server/` — Node + Express backend
+- `shared/` — shared constants and model definitions
+- `data/` — JSON persistence and seed data
+- `docs/` — architecture notes
 
-## Planned stack
-- React + TypeScript frontend
-- Azure Functions API
-- Cosmos DB document model
-- Shared TypeScript domain package
+## Features in this scaffold
+- Inventory page listing fact sheets from the API
+- Create fact sheet form
+- Fact sheet detail view with related relations
+- Placeholder dashboard page
+- JSON file persistence with automatic data file initialization
+- Shared fact sheet and relation model examples
 
-## Repo layout
-- `apps/web` — UI
-- `apps/api` — Azure Functions backend
-- `packages/domain` — shared types and meta model helpers
-- `docs` — architecture and design docs
+## Getting started
+### 1. Install dependencies
+```bash
+npm install
+```
 
-## Next milestones
-1. Monorepo scaffold
-2. Shared meta model package
-3. Fact sheet CRUD API
-4. Inventory UI
-5. Dashboard plugin host
+### 2. Run both client and server
+```bash
+npm run dev
+```
+
+- Frontend: http://localhost:5173
+- Backend: http://localhost:4000
+
+### Individual commands
+```bash
+npm run dev:client
+npm run dev:server
+npm run build
+npm run start
+```
+
+## API routes
+- `GET /api/health`
+- `GET /api/factsheets`
+- `POST /api/factsheets`
+- `GET /api/factsheets/:id`
+- `PUT /api/factsheets/:id`
+- `GET /api/relations`
+- `POST /api/relations`
+
+## Notes
+- Data is stored in `data/factsheets.json` and `data/relations.json`.
+- The `server/src/services/fileStore.js` module is the only persistence layer, making it easier to replace with Cosmos DB later.
+- The project intentionally uses plain JavaScript for a small, readable starting point.

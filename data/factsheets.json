@@ -1,0 +1,47 @@
+[
+  {
+    "id": "fs-app-crm",
+    "type": "Application",
+    "name": "Customer CRM",
+    "description": "Central CRM used by sales and support teams.",
+    "lifecycle": "active",
+    "owner": "Sales Operations",
+    "tags": ["customer", "core"],
+    "attributes": {
+      "vendor": "Contoso",
+      "criticality": "high"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-app-billing",
+    "type": "Application",
+    "name": "Billing Platform",
+    "description": "Handles invoicing and payment reconciliation.",
+    "lifecycle": "active",
+    "owner": "Finance IT",
+    "tags": ["finance"],
+    "attributes": {
+      "vendor": "Northwind",
+      "criticality": "medium"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-cap-order-to-cash",
+    "type": "BusinessCapability",
+    "name": "Order to Cash",
+    "description": "Capability covering order processing through payment collection.",
+    "lifecycle": "target",
+    "owner": "Business Architecture",
+    "tags": ["capability"],
+    "attributes": {
+      "domain": "Revenue",
+      "priority": "2026"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  }
+]

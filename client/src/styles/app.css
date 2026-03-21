@@ -1,0 +1,203 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  color: #172033;
+  background: #f3f5f9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+body, input, button, textarea, select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+}
+
+.sidebar {
+  background: #0f172a;
+  color: white;
+  padding: 2rem 1.5rem;
+}
+
+.sidebar nav {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.sidebar a {
+  color: #bfdbfe;
+  text-decoration: none;
+}
+
+.sidebar a.active {
+  color: white;
+  font-weight: 700;
+}
+
+.content {
+  padding: 2rem;
+}
+
+.panel {
+  background: white;
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.layout-columns {
+  grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+}
+
+.two-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.table-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.list-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #dbe2ea;
+  border-radius: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.list-card:hover {
+  border-color: #94a3b8;
+}
+
+.meta-column {
+  display: grid;
+  justify-items: end;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+input,
+textarea,
+select,
+button {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 0.7rem 0.85rem;
+  background: white;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.badge-saving {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.badge-saved {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge-error {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.error-text {
+  color: #b91c1c;
+  margin: 0;
+}
+
+.stat-card,
+.detail-grid > div {
+  border: 1px solid #dbe2ea;
+  border-radius: 14px;
+  padding: 1rem;
+  background: #f8fafc;
+}
+
+.detail-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 1.5rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 900px) {
+  .app-shell,
+  .layout-columns,
+  .two-up,
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}

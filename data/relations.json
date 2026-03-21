@@ -1,0 +1,14 @@
+[
+  {
+    "id": "rel-crm-billing",
+    "sourceId": "fs-app-crm",
+    "targetId": "fs-app-billing",
+    "type": "interfacesWith"
+  },
+  {
+    "id": "rel-cap-crm",
+    "sourceId": "fs-cap-order-to-cash",
+    "targetId": "fs-app-crm",
+    "type": "supports"
+  }
+]

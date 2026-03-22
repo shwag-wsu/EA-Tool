@@ -127,5 +127,68 @@
     "sourceId": "fs-initiative-modernization",
     "targetId": "fs-app-crm",
     "type": "affects"
+  },
+  {
+    "id": "rel-cap-service-service-desk",
+    "sourceId": "fs-cap-customer-service",
+    "targetId": "fs-app-service-desk",
+    "type": "supports",
+    "businessFit": "Strong"
+  },
+  {
+    "id": "rel-cap-service-portal",
+    "sourceId": "fs-cap-customer-service",
+    "targetId": "fs-app-customer-portal",
+    "type": "supports",
+    "businessFit": "Good"
+  },
+  {
+    "id": "rel-cap-order-portal",
+    "sourceId": "fs-cap-order-to-cash",
+    "targetId": "fs-app-customer-portal",
+    "type": "supports",
+    "businessFit": "Strong"
+  },
+  {
+    "id": "rel-cap-finance-billing",
+    "sourceId": "fs-cap-finance-operations",
+    "targetId": "fs-app-billing",
+    "type": "supports",
+    "businessFit": "Moderate"
+  },
+  {
+    "id": "rel-cap-finance-erp",
+    "sourceId": "fs-cap-finance-operations",
+    "targetId": "fs-app-erp-finance",
+    "type": "supports",
+    "businessFit": "Strong"
+  },
+  {
+    "id": "rel-cap-hr-payroll",
+    "sourceId": "fs-cap-workforce-management",
+    "targetId": "fs-app-payroll",
+    "type": "supports",
+    "businessFit": "Good"
+  },
+  {
+    "id": "rel-cap-hr-attendance",
+    "sourceId": "fs-cap-workforce-management",
+    "targetId": "fs-app-attendance",
+    "type": "supports",
+    "businessFit": "Moderate"
+  },
+  {
+    "id": "rel-cap-order-bus",
+    "sourceId": "fs-cap-order-to-cash",
+    "targetId": "fs-app-integration-bus",
+    "type": "supports",
+    "businessFit": "Weak"
+  },
+  {
+    "id": "rel-service-bus",
+    "sourceId": "fs-cap-customer-service",
+    "targetId": "fs-app-integration-bus",
+    "type": "supports",
+    "businessFit": "Weak"
   }
 ]

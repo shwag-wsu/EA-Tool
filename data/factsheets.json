@@ -336,5 +336,264 @@
     },
     "createdAt": "2026-03-21T00:00:00.000Z",
     "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-cap-customer-service",
+    "type": "Business Capability",
+    "subtype": "Core Capability",
+    "name": "Customer Service",
+    "description": "Capability focused on post-sales support, service operations, and case resolution.",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2024-02-01",
+      "phaseIn": "2024-05-01",
+      "active": "2024-08-01",
+      "phaseOut": "2029-06-01",
+      "endOfLife": "2029-12-31"
+    },
+    "owner": "Service Excellence",
+    "tags": [
+      "capability",
+      "service"
+    ],
+    "attributes": {
+      "domain": "Customer",
+      "priority": "2026"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-cap-finance-operations",
+    "type": "Business Capability",
+    "subtype": "Supporting Capability",
+    "name": "Finance Operations",
+    "description": "Capability for invoice processing, reconciliation, and accounting oversight.",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2024-03-01",
+      "phaseIn": "2024-06-01",
+      "active": "2024-09-01",
+      "phaseOut": "2029-06-01",
+      "endOfLife": "2029-12-31"
+    },
+    "owner": "Finance Transformation",
+    "tags": [
+      "capability",
+      "finance"
+    ],
+    "attributes": {
+      "domain": "Finance",
+      "priority": "2027"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-cap-workforce-management",
+    "type": "Business Capability",
+    "subtype": "Supporting Capability",
+    "name": "Workforce Management",
+    "description": "Capability supporting attendance, payroll, and workforce administration.",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2024-04-01",
+      "phaseIn": "2024-07-01",
+      "active": "2024-10-01",
+      "phaseOut": "2030-01-01",
+      "endOfLife": "2030-12-31"
+    },
+    "owner": "People Operations",
+    "tags": [
+      "capability",
+      "hr"
+    ],
+    "attributes": {
+      "domain": "HR",
+      "priority": "2028"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-app-service-desk",
+    "type": "Application",
+    "subtype": "Business Application",
+    "name": "Service Desk Hub",
+    "description": "Omnichannel support workspace for managing customer cases and escalations.",
+    "timeModel": "Invest",
+    "lifecycle": {
+      "plan": "2024-02-15",
+      "phaseIn": "2024-05-01",
+      "active": "2024-08-15",
+      "phaseOut": "2029-01-01",
+      "endOfLife": "2029-12-31"
+    },
+    "owner": "Service Operations",
+    "tags": [
+      "service",
+      "support"
+    ],
+    "attributes": {
+      "vendor": "Litware",
+      "criticality": "mission"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-app-customer-portal",
+    "type": "Application",
+    "subtype": "Business Application",
+    "name": "Customer Portal",
+    "description": "Self-service portal for order tracking, requests, and knowledge content.",
+    "timeModel": "Invest",
+    "lifecycle": {
+      "plan": "2024-01-10",
+      "phaseIn": "2024-03-15",
+      "active": "2024-07-10",
+      "phaseOut": "2028-09-01",
+      "endOfLife": "2029-06-30"
+    },
+    "owner": "Digital Experience",
+    "tags": [
+      "customer",
+      "portal"
+    ],
+    "attributes": {
+      "vendor": "Contoso",
+      "criticality": "business"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-app-erp-finance",
+    "type": "Application",
+    "subtype": "Business Application",
+    "name": "ERP Finance",
+    "description": "Core financial system for ledger, reconciliation, and period close.",
+    "timeModel": "Tolerate",
+    "lifecycle": {
+      "plan": "2023-11-01",
+      "phaseIn": "2024-02-01",
+      "active": "2024-05-01",
+      "phaseOut": "2028-12-31",
+      "endOfLife": "2029-12-31"
+    },
+    "owner": "Finance IT",
+    "tags": [
+      "finance",
+      "erp"
+    ],
+    "attributes": {
+      "vendor": "Northwind",
+      "criticality": "business operational"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-app-payroll",
+    "type": "Application",
+    "subtype": "Business Application",
+    "name": "Payroll Pro",
+    "description": "Payroll and compensation management application for the global workforce.",
+    "timeModel": "Tolerate",
+    "lifecycle": {
+      "plan": "2024-01-05",
+      "phaseIn": "2024-04-01",
+      "active": "2024-07-01",
+      "phaseOut": "2028-11-01",
+      "endOfLife": "2029-08-31"
+    },
+    "owner": "HRIS",
+    "tags": [
+      "hr",
+      "payroll"
+    ],
+    "attributes": {
+      "vendor": "Fabrikam",
+      "criticality": "administrative"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-app-attendance",
+    "type": "Application",
+    "subtype": "Business Application",
+    "name": "Time Track",
+    "description": "Employee attendance and time tracking solution.",
+    "timeModel": "Migrate",
+    "lifecycle": {
+      "plan": "2023-12-01",
+      "phaseIn": "2024-03-01",
+      "active": "2024-06-01",
+      "phaseOut": "2027-12-31",
+      "endOfLife": "2028-09-30"
+    },
+    "owner": "People Operations",
+    "tags": [
+      "hr",
+      "time"
+    ],
+    "attributes": {
+      "vendor": "Fabrikam",
+      "criticality": "operational"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-app-integration-bus",
+    "type": "Application",
+    "subtype": "Microservice",
+    "name": "Integration Bus",
+    "description": "Shared integration runtime coordinating APIs, events, and transformations.",
+    "timeModel": "Eliminate",
+    "lifecycle": {
+      "plan": "2023-07-01",
+      "phaseIn": "2023-10-01",
+      "active": "2024-01-01",
+      "phaseOut": "2026-12-31",
+      "endOfLife": "2027-06-30"
+    },
+    "owner": "Integration Team",
+    "tags": [
+      "integration",
+      "shared"
+    ],
+    "attributes": {
+      "vendor": "LegacyWare",
+      "criticality": "n/a"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-app-billing",
+    "type": "Application",
+    "subtype": "Business Application",
+    "name": "Billing Platform",
+    "description": "Handles invoicing and payment reconciliation.",
+    "timeModel": "Migrate",
+    "lifecycle": {
+      "plan": "2023-08-01",
+      "phaseIn": "2023-11-01",
+      "active": "2024-02-01",
+      "phaseOut": "2027-01-01",
+      "endOfLife": "2027-12-31"
+    },
+    "owner": "Finance IT",
+    "tags": [
+      "finance"
+    ],
+    "attributes": {
+      "vendor": "Northwind",
+      "criticality": "business"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
   }
 ]

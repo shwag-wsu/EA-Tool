@@ -1,5 +1,32 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { getCurrentLifecyclePhase, lifecyclePhases } from '@ea-tool/shared';
+
+function renderRelationMeta(relation, source, target) {
+  const details = [];
+  const isCapabilityToApplication =
+    (source?.type === 'Business Capability' && target?.type === 'Application') ||
+    (source?.type === 'Application' && target?.type === 'Business Capability');
+  const isApplicationToItComponent =
+    (source?.type === 'Application' && target?.type === 'IT Component') ||
+    (source?.type === 'IT Component' && target?.type === 'Application');
+
+  if (isCapabilityToApplication && relation.businessFit) {
+    details.push(`Business fit: ${relation.businessFit}`);
+  }
+
+  if (isApplicationToItComponent) {
+    if (relation.technicalFit) {
+      details.push(`Technical fit: ${relation.technicalFit}`);
+    }
+
+    if (relation.annualCost) {
+      details.push(`Annual cost: ${relation.annualCost}`);
+    }
+  }
+
+  return details.join(' · ');
+}
 
 export default function FactSheetDetailPage() {
   const { id } = useParams();
@@ -44,6 +71,8 @@ export default function FactSheetDetailPage() {
     [factSheetsById, relations]
   );
 
+  const currentLifecyclePhase = useMemo(() => getCurrentLifecyclePhase(factSheet?.lifecycle), [factSheet]);
+
   if (!factSheet) {
     return <p>Loading fact sheet details...</p>;
   }
@@ -62,7 +91,7 @@ export default function FactSheetDetailPage() {
             {factSheet.subtype ? ` · ${factSheet.subtype}` : ''}
           </p>
         </div>
-        <span className="badge">{factSheet.lifecycle}</span>
+        <span className="badge">{currentLifecyclePhase.label}</span>
       </div>
 
       <div className="detail-grid">
@@ -75,8 +104,22 @@ export default function FactSheetDetailPage() {
           <p>{factSheet.owner}</p>
         </div>
         <div>
+          <h3>TIME Model</h3>
+          <p>{factSheet.timeModel || 'Not applicable.'}</p>
+        </div>
+        <div>
           <h3>Tags</h3>
           <p>{factSheet.tags?.join(', ') || 'No tags assigned.'}</p>
+        </div>
+        <div>
+          <h3>Lifecycle Timeline</h3>
+          <ul>
+            {lifecyclePhases.map((phase) => (
+              <li key={phase.key}>
+                <strong>{phase.label}:</strong> {factSheet.lifecycle?.[phase.key] || 'No date assigned.'}
+              </li>
+            ))}
+          </ul>
         </div>
         <div>
           <h3>Attributes</h3>
@@ -87,12 +130,17 @@ export default function FactSheetDetailPage() {
       <div>
         <h3>Relations</h3>
         <ul>
-          {relatedItems.map((relation) => (
-            <li key={relation.id}>
-              <strong>{relation.type}</strong>: {relation.source?.name || relation.sourceId} →{' '}
-              {relation.target?.name || relation.targetId}
-            </li>
-          ))}
+          {relatedItems.map((relation) => {
+            const relationMeta = renderRelationMeta(relation, relation.source, relation.target);
+
+            return (
+              <li key={relation.id}>
+                <strong>{relation.type}</strong>: {relation.source?.name || relation.sourceId} →{' '}
+                {relation.target?.name || relation.targetId}
+                {relationMeta ? <div>{relationMeta}</div> : null}
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

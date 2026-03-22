@@ -11,9 +11,17 @@ const seedData = {
     {
       id: 'fs-app-crm',
       type: 'Application',
+      subtype: 'Business Application',
       name: 'Customer CRM',
       description: 'Central CRM used by sales and support teams.',
-      lifecycle: 'active',
+      timeModel: 'Invest',
+      lifecycle: {
+        plan: '2024-01-15',
+        phaseIn: '2024-04-01',
+        active: '2024-07-01',
+        phaseOut: '2028-01-01',
+        endOfLife: '2028-12-31'
+      },
       owner: 'Sales Operations',
       tags: ['customer', 'core'],
       attributes: {
@@ -26,9 +34,17 @@ const seedData = {
     {
       id: 'fs-app-billing',
       type: 'Application',
+      subtype: 'Business Application',
       name: 'Billing Platform',
       description: 'Handles invoicing and payment reconciliation.',
-      lifecycle: 'active',
+      timeModel: 'Migrate',
+      lifecycle: {
+        plan: '2023-08-01',
+        phaseIn: '2023-11-01',
+        active: '2024-02-01',
+        phaseOut: '2027-01-01',
+        endOfLife: '2027-12-31'
+      },
       owner: 'Finance IT',
       tags: ['finance'],
       attributes: {
@@ -40,10 +56,18 @@ const seedData = {
     },
     {
       id: 'fs-cap-order-to-cash',
-      type: 'BusinessCapability',
+      type: 'Business Capability',
+      subtype: 'Core Capability',
       name: 'Order to Cash',
       description: 'Capability covering order processing through payment collection.',
-      lifecycle: 'target',
+      timeModel: null,
+      lifecycle: {
+        plan: '2025-01-01',
+        phaseIn: '2025-05-01',
+        active: '2025-08-01',
+        phaseOut: '2028-06-01',
+        endOfLife: '2028-12-31'
+      },
       owner: 'Business Architecture',
       tags: ['capability'],
       attributes: {
@@ -65,7 +89,8 @@ const seedData = {
       id: 'rel-cap-crm',
       sourceId: 'fs-cap-order-to-cash',
       targetId: 'fs-app-crm',
-      type: 'supports'
+      type: 'supports',
+      businessFit: 'Strong'
     }
   ]
 };

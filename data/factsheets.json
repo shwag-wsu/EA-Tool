@@ -5,9 +5,19 @@
     "subtype": "Strategic Objective",
     "name": "Grow Digital Revenue",
     "description": "Increase digital revenue streams while improving customer experience.",
-    "lifecycle": "target",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2025-01-01",
+      "phaseIn": "2025-03-01",
+      "active": "2025-06-01",
+      "phaseOut": "2028-01-01",
+      "endOfLife": "2028-12-31"
+    },
     "owner": "Strategy Office",
-    "tags": ["strategy", "growth"],
+    "tags": [
+      "strategy",
+      "growth"
+    ],
     "attributes": {
       "timeHorizon": "FY2026",
       "metric": "Digital revenue mix"
@@ -21,9 +31,19 @@
     "subtype": "Business Platform",
     "name": "Digital Commerce Platform",
     "description": "Shared platform that powers customer engagement and order orchestration.",
-    "lifecycle": "active",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2024-07-01",
+      "phaseIn": "2024-10-01",
+      "active": "2025-01-15",
+      "phaseOut": "2029-01-01",
+      "endOfLife": "2029-12-31"
+    },
     "owner": "Enterprise Platforms",
-    "tags": ["platform", "commerce"],
+    "tags": [
+      "platform",
+      "commerce"
+    ],
     "attributes": {
       "domain": "Customer",
       "criticality": "high"
@@ -37,9 +57,19 @@
     "subtype": "Program",
     "name": "Customer Modernization Program",
     "description": "Portfolio initiative delivering a unified customer experience roadmap.",
-    "lifecycle": "active",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2024-09-01",
+      "phaseIn": "2025-01-01",
+      "active": "2025-04-01",
+      "phaseOut": "2027-07-01",
+      "endOfLife": "2027-12-31"
+    },
     "owner": "Transformation Office",
-    "tags": ["initiative", "modernization"],
+    "tags": [
+      "initiative",
+      "modernization"
+    ],
     "attributes": {
       "budget": "2.5M",
       "sponsor": "Chief Digital Officer"
@@ -53,9 +83,19 @@
     "subtype": "Business Unit",
     "name": "Global Sales",
     "description": "Business unit responsible for digital pipeline and revenue growth.",
-    "lifecycle": "active",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2023-07-01",
+      "phaseIn": "2023-10-01",
+      "active": "2024-01-01",
+      "phaseOut": "2030-01-01",
+      "endOfLife": "2030-12-31"
+    },
     "owner": "COO",
-    "tags": ["org", "sales"],
+    "tags": [
+      "org",
+      "sales"
+    ],
     "attributes": {
       "region": "Global",
       "headcount": "420"
@@ -69,9 +109,19 @@
     "subtype": "Core Capability",
     "name": "Order to Cash",
     "description": "Capability covering order processing through payment collection.",
-    "lifecycle": "target",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2025-01-01",
+      "phaseIn": "2025-05-01",
+      "active": "2025-08-01",
+      "phaseOut": "2028-06-01",
+      "endOfLife": "2028-12-31"
+    },
     "owner": "Business Architecture",
-    "tags": ["capability", "revenue"],
+    "tags": [
+      "capability",
+      "revenue"
+    ],
     "attributes": {
       "domain": "Revenue",
       "priority": "2026"
@@ -85,9 +135,19 @@
     "subtype": "Customer Journey",
     "name": "Digital Purchase Journey",
     "description": "End-to-end customer journey from discovery through fulfillment and billing.",
-    "lifecycle": "active",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2024-01-01",
+      "phaseIn": "2024-04-01",
+      "active": "2024-07-01",
+      "phaseOut": "2029-01-01",
+      "endOfLife": "2029-12-31"
+    },
     "owner": "Customer Experience",
-    "tags": ["journey", "customer"],
+    "tags": [
+      "journey",
+      "customer"
+    ],
     "attributes": {
       "segment": "B2B",
       "channel": "Digital"
@@ -101,9 +161,19 @@
     "subtype": "Master Data",
     "name": "Customer Profile",
     "description": "Golden customer profile used across commerce, service, and billing domains.",
-    "lifecycle": "active",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2024-02-01",
+      "phaseIn": "2024-05-01",
+      "active": "2024-09-01",
+      "phaseOut": "2029-06-01",
+      "endOfLife": "2029-12-31"
+    },
     "owner": "Data Governance",
-    "tags": ["data", "customer"],
+    "tags": [
+      "data",
+      "customer"
+    ],
     "attributes": {
       "sensitivity": "confidential",
       "retention": "7 years"
@@ -117,9 +187,19 @@
     "subtype": "Business Application",
     "name": "Customer CRM",
     "description": "Central CRM used by sales and support teams.",
-    "lifecycle": "active",
+    "timeModel": "Invest",
+    "lifecycle": {
+      "plan": "2024-01-15",
+      "phaseIn": "2024-04-01",
+      "active": "2024-07-01",
+      "phaseOut": "2028-01-01",
+      "endOfLife": "2028-12-31"
+    },
     "owner": "Sales Operations",
-    "tags": ["customer", "core"],
+    "tags": [
+      "customer",
+      "core"
+    ],
     "attributes": {
       "vendor": "Contoso",
       "criticality": "high"
@@ -133,9 +213,19 @@
     "subtype": "API",
     "name": "Customer API",
     "description": "Primary integration interface exposing customer and order services.",
-    "lifecycle": "active",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2024-03-01",
+      "phaseIn": "2024-05-15",
+      "active": "2024-08-01",
+      "phaseOut": "2028-06-01",
+      "endOfLife": "2028-12-31"
+    },
     "owner": "Integration Team",
-    "tags": ["api", "integration"],
+    "tags": [
+      "api",
+      "integration"
+    ],
     "attributes": {
       "protocol": "REST",
       "auth": "OAuth2"
@@ -149,9 +239,19 @@
     "subtype": "Cloud Provider",
     "name": "Fabrikam Cloud",
     "description": "Strategic provider supplying managed hosting and AI platform services.",
-    "lifecycle": "active",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2023-01-01",
+      "phaseIn": "2023-04-01",
+      "active": "2023-07-01",
+      "phaseOut": "2030-01-01",
+      "endOfLife": "2030-12-31"
+    },
     "owner": "Vendor Management",
-    "tags": ["provider", "cloud"],
+    "tags": [
+      "provider",
+      "cloud"
+    ],
     "attributes": {
       "contract": "Enterprise",
       "tier": "Strategic"
@@ -165,9 +265,19 @@
     "subtype": "SaaS",
     "name": "CRM SaaS Tenant",
     "description": "Hosted SaaS component delivering core CRM capabilities.",
-    "lifecycle": "active",
+    "timeModel": "Tolerate",
+    "lifecycle": {
+      "plan": "2024-02-01",
+      "phaseIn": "2024-05-01",
+      "active": "2024-09-01",
+      "phaseOut": "2027-10-01",
+      "endOfLife": "2028-03-31"
+    },
     "owner": "CRM Platform Team",
-    "tags": ["saas", "crm"],
+    "tags": [
+      "saas",
+      "crm"
+    ],
     "attributes": {
       "deployment": "multi-tenant",
       "serviceLevel": "99.9%"
@@ -181,9 +291,19 @@
     "subtype": "Business Technology",
     "name": "CRM Technology",
     "description": "Technology category grouping customer relationship management tooling.",
-    "lifecycle": "active",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2024-01-01",
+      "phaseIn": "2024-03-01",
+      "active": "2024-06-01",
+      "phaseOut": "2029-01-01",
+      "endOfLife": "2029-12-31"
+    },
     "owner": "Enterprise Architecture",
-    "tags": ["technology", "crm"],
+    "tags": [
+      "technology",
+      "crm"
+    ],
     "attributes": {
       "domain": "Customer",
       "standard": "Preferred"
@@ -197,9 +317,19 @@
     "subtype": "External System",
     "name": "Billing Core System",
     "description": "External enterprise system used for invoicing and payment reconciliation.",
-    "lifecycle": "active",
+    "timeModel": null,
+    "lifecycle": {
+      "plan": "2023-06-01",
+      "phaseIn": "2023-09-01",
+      "active": "2024-01-01",
+      "phaseOut": "2029-07-01",
+      "endOfLife": "2030-01-31"
+    },
     "owner": "Finance IT",
-    "tags": ["billing", "system"],
+    "tags": [
+      "billing",
+      "system"
+    ],
     "attributes": {
       "integrationPattern": "event-driven",
       "hosting": "vendor-managed"

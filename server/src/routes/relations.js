@@ -16,7 +16,10 @@ router.post('/', async (req, res) => {
     id: payload.id || `rel-${Date.now()}`,
     sourceId: payload.sourceId,
     targetId: payload.targetId,
-    type: payload.type || 'supports'
+    type: payload.type || 'supports',
+    businessFit: payload.businessFit || null,
+    technicalFit: payload.technicalFit || null,
+    annualCost: payload.annualCost || null
   };
 
   relations.push(relation);

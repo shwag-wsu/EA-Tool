@@ -57,7 +57,8 @@
     "id": "rel-cap-application",
     "sourceId": "fs-cap-order-to-cash",
     "targetId": "fs-app-crm",
-    "type": "supports"
+    "type": "supports",
+    "businessFit": "Strong"
   },
   {
     "id": "rel-app-data",
@@ -99,7 +100,9 @@
     "id": "rel-itcomponent-app",
     "sourceId": "fs-itcomponent-crm-saas",
     "targetId": "fs-app-crm",
-    "type": "implements"
+    "type": "implements",
+    "technicalFit": "Moderate",
+    "annualCost": "$180,000"
   },
   {
     "id": "rel-itcomponent-techcategory",

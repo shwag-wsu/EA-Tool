@@ -1,4 +1,5 @@
 import express from 'express';
+import { normalizeLifecycle, requiresTimeModel } from '@ea-tool/shared';
 import { readCollection, writeCollection } from '../services/fileStore.js';
 
 const router = express.Router();
@@ -10,6 +11,27 @@ function buildId(type, name) {
     .replace(/^-|-$/g, '');
 
   return `fs-${slug || Date.now()}`;
+}
+
+function normalizeFactSheet(payload = {}, existingFactSheet = {}) {
+  const type = payload.type || existingFactSheet.type || 'Application';
+
+  return {
+    ...existingFactSheet,
+    ...payload,
+    type,
+    subtype: payload.subtype ?? existingFactSheet.subtype ?? '',
+    name: payload.name || existingFactSheet.name || 'Untitled Fact Sheet',
+    description: payload.description ?? existingFactSheet.description ?? '',
+    lifecycle: normalizeLifecycle(payload.lifecycle ?? existingFactSheet.lifecycle),
+    timeModel: requiresTimeModel(type) ? payload.timeModel || existingFactSheet.timeModel || 'Tolerate' : null,
+    owner: payload.owner || existingFactSheet.owner || 'Unassigned',
+    tags: Array.isArray(payload.tags) ? payload.tags : existingFactSheet.tags || [],
+    attributes:
+      payload.attributes && typeof payload.attributes === 'object' && !Array.isArray(payload.attributes)
+        ? payload.attributes
+        : existingFactSheet.attributes || {}
+  };
 }
 
 router.get('/', async (_req, res) => {
@@ -24,14 +46,7 @@ router.post('/', async (req, res) => {
 
   const factSheet = {
     id: payload.id || buildId(payload.type || 'item', payload.name || 'new'),
-    type: payload.type || 'Application',
-    subtype: payload.subtype || '',
-    name: payload.name || 'Untitled Fact Sheet',
-    description: payload.description || '',
-    lifecycle: payload.lifecycle || 'planned',
-    owner: payload.owner || 'Unassigned',
-    tags: Array.isArray(payload.tags) ? payload.tags : [],
-    attributes: payload.attributes && typeof payload.attributes === 'object' ? payload.attributes : {},
+    ...normalizeFactSheet(payload),
     createdAt: now,
     updatedAt: now
   };
@@ -61,9 +76,9 @@ router.put('/:id', async (req, res) => {
   }
 
   const updatedFactSheet = {
-    ...factsheets[index],
-    ...req.body,
+    ...normalizeFactSheet(req.body, factsheets[index]),
     id: factsheets[index].id,
+    createdAt: factsheets[index].createdAt,
     updatedAt: new Date().toISOString()
   };
 

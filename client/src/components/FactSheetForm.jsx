@@ -1,5 +1,12 @@
 import { useMemo, useState } from 'react';
-import { factSheetSubtypes, factSheetTypes } from '@ea-tool/shared';
+import {
+  createEmptyLifecycle,
+  factSheetSubtypes,
+  factSheetTypes,
+  lifecyclePhases,
+  requiresTimeModel,
+  timeModelOptions
+} from '@ea-tool/shared';
 
 const defaultType = factSheetTypes[0];
 const defaultSubtype = factSheetSubtypes[defaultType]?.[0] || '';
@@ -9,7 +16,8 @@ const initialState = {
   subtype: defaultSubtype,
   name: '',
   description: '',
-  lifecycle: 'planned',
+  timeModel: 'Tolerate',
+  lifecycle: createEmptyLifecycle(),
   owner: '',
   tags: '',
   attributes: '{\n  "vendor": "",\n  "criticality": ""\n}'
@@ -20,8 +28,8 @@ export default function FactSheetForm({ onCreated }) {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState('');
 
-  const lifecycles = useMemo(() => ['planned', 'active', 'target', 'retiring'], []);
   const subtypeOptions = useMemo(() => factSheetSubtypes[form.type] || [], [form.type]);
+  const showTimeModel = requiresTimeModel(form.type);
 
   function updateField(event) {
     const { name, value } = event.target;
@@ -31,12 +39,25 @@ export default function FactSheetForm({ onCreated }) {
         return {
           ...current,
           type: value,
-          subtype: factSheetSubtypes[value]?.[0] || ''
+          subtype: factSheetSubtypes[value]?.[0] || '',
+          timeModel: requiresTimeModel(value) ? current.timeModel : 'Tolerate'
         };
       }
 
       return { ...current, [name]: value };
     });
+  }
+
+  function updateLifecycleField(event) {
+    const { name, value } = event.target;
+
+    setForm((current) => ({
+      ...current,
+      lifecycle: {
+        ...current.lifecycle,
+        [name]: value
+      }
+    }));
   }
 
   async function handleSubmit(event) {
@@ -52,6 +73,7 @@ export default function FactSheetForm({ onCreated }) {
         },
         body: JSON.stringify({
           ...form,
+          timeModel: showTimeModel ? form.timeModel : null,
           tags: form.tags
             .split(',')
             .map((item) => item.trim())
@@ -114,16 +136,36 @@ export default function FactSheetForm({ onCreated }) {
           <textarea name="description" value={form.description} onChange={updateField} rows="3" />
         </label>
 
-        <label>
-          Lifecycle
-          <select name="lifecycle" value={form.lifecycle} onChange={updateField}>
-            {lifecycles.map((lifecycle) => (
-              <option key={lifecycle} value={lifecycle}>
-                {lifecycle}
-              </option>
+        {showTimeModel ? (
+          <label>
+            TIME Model
+            <select name="timeModel" value={form.timeModel} onChange={updateField}>
+              {timeModelOptions.map((timeModel) => (
+                <option key={timeModel} value={timeModel}>
+                  {timeModel}
+                </option>
+              ))}
+            </select>
+          </label>
+        ) : null}
+
+        <fieldset>
+          <legend>Lifecycle Timeline</legend>
+          <div className="stack">
+            {lifecyclePhases.map((phase) => (
+              <label key={phase.key}>
+                {phase.label}
+                <input
+                  type="date"
+                  name={phase.key}
+                  value={form.lifecycle[phase.key]}
+                  onChange={updateLifecycleField}
+                  required
+                />
+              </label>
             ))}
-          </select>
-        </label>
+          </div>
+        </fieldset>
 
         <label>
           Owner

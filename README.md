@@ -11,8 +11,9 @@ LeanIX-inspired lightweight enterprise architecture tool designed to run locally
 
 ## Features in this scaffold
 - Inventory page listing fact sheets from the API
-- Create fact sheet form
-- Fact sheet detail view with related relations
+- Create fact sheet form with TIME model support for applications and IT components
+- Lifecycle timelines on every fact sheet using Plan, Phase-In, Active, Phase-Out, and End-of-Life dates
+- Fact sheet detail view with related relations, including business fit, technical fit, and annual cost metadata where relevant
 - Placeholder dashboard page
 - JSON file persistence with automatic data file initialization
 - Shared fact sheet and relation model examples

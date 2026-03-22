@@ -1,29 +1,48 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 export default function FactSheetDetailPage() {
   const { id } = useParams();
   const [factSheet, setFactSheet] = useState(null);
   const [relations, setRelations] = useState([]);
+  const [factSheetsById, setFactSheetsById] = useState({});
 
   useEffect(() => {
     async function load() {
-      const [factSheetResponse, relationResponse] = await Promise.all([
+      const [factSheetResponse, relationResponse, factSheetsResponse] = await Promise.all([
         fetch(`/api/factsheets/${id}`),
-        fetch('/api/relations')
+        fetch('/api/relations'),
+        fetch('/api/factsheets')
       ]);
 
-      const factSheetData = await factSheetResponse.json();
-      const relationData = await relationResponse.json();
+      const [factSheetData, relationData, factSheetsData] = await Promise.all([
+        factSheetResponse.json(),
+        relationResponse.json(),
+        factSheetsResponse.json()
+      ]);
 
       setFactSheet(factSheetData);
-      setRelations(
-        relationData.filter((relation) => relation.sourceId === id || relation.targetId === id)
+      setRelations(relationData.filter((relation) => relation.sourceId === id || relation.targetId === id));
+      setFactSheetsById(
+        factSheetsData.reduce((lookup, item) => {
+          lookup[item.id] = item;
+          return lookup;
+        }, {})
       );
     }
 
     load();
   }, [id]);
+
+  const relatedItems = useMemo(
+    () =>
+      relations.map((relation) => ({
+        ...relation,
+        source: factSheetsById[relation.sourceId],
+        target: factSheetsById[relation.targetId]
+      })),
+    [factSheetsById, relations]
+  );
 
   if (!factSheet) {
     return <p>Loading fact sheet details...</p>;
@@ -38,7 +57,10 @@ export default function FactSheetDetailPage() {
       <div className="panel-header">
         <div>
           <h2>{factSheet.name}</h2>
-          <p>{factSheet.type}</p>
+          <p>
+            {factSheet.type}
+            {factSheet.subtype ? ` · ${factSheet.subtype}` : ''}
+          </p>
         </div>
         <span className="badge">{factSheet.lifecycle}</span>
       </div>
@@ -65,9 +87,10 @@ export default function FactSheetDetailPage() {
       <div>
         <h3>Relations</h3>
         <ul>
-          {relations.map((relation) => (
+          {relatedItems.map((relation) => (
             <li key={relation.id}>
-              {relation.type}: {relation.sourceId} → {relation.targetId}
+              <strong>{relation.type}</strong>: {relation.source?.name || relation.sourceId} →{' '}
+              {relation.target?.name || relation.targetId}
             </li>
           ))}
         </ul>

@@ -25,6 +25,7 @@ router.post('/', async (req, res) => {
   const factSheet = {
     id: payload.id || buildId(payload.type || 'item', payload.name || 'new'),
     type: payload.type || 'Application',
+    subtype: payload.subtype || '',
     name: payload.name || 'Untitled Fact Sheet',
     description: payload.description || '',
     lifecycle: payload.lifecycle || 'planned',

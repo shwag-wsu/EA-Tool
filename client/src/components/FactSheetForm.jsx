@@ -1,8 +1,12 @@
 import { useMemo, useState } from 'react';
-import { factSheetTypes } from '@ea-tool/shared';
+import { factSheetSubtypes, factSheetTypes } from '@ea-tool/shared';
+
+const defaultType = factSheetTypes[0];
+const defaultSubtype = factSheetSubtypes[defaultType]?.[0] || '';
 
 const initialState = {
-  type: factSheetTypes[0],
+  type: defaultType,
+  subtype: defaultSubtype,
   name: '',
   description: '',
   lifecycle: 'planned',
@@ -17,10 +21,22 @@ export default function FactSheetForm({ onCreated }) {
   const [error, setError] = useState('');
 
   const lifecycles = useMemo(() => ['planned', 'active', 'target', 'retiring'], []);
+  const subtypeOptions = useMemo(() => factSheetSubtypes[form.type] || [], [form.type]);
 
   function updateField(event) {
     const { name, value } = event.target;
-    setForm((current) => ({ ...current, [name]: value }));
+
+    setForm((current) => {
+      if (name === 'type') {
+        return {
+          ...current,
+          type: value,
+          subtype: factSheetSubtypes[value]?.[0] || ''
+        };
+      }
+
+      return { ...current, [name]: value };
+    });
   }
 
   async function handleSubmit(event) {
@@ -72,6 +88,17 @@ export default function FactSheetForm({ onCreated }) {
             {factSheetTypes.map((type) => (
               <option key={type} value={type}>
                 {type}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label>
+          Subtype
+          <select name="subtype" value={form.subtype} onChange={updateField}>
+            {subtypeOptions.map((subtype) => (
+              <option key={subtype} value={subtype}>
+                {subtype}
               </option>
             ))}
           </select>

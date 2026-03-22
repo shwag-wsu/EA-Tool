@@ -1,7 +1,120 @@
 [
   {
+    "id": "fs-objective-growth",
+    "type": "Objective",
+    "subtype": "Strategic Objective",
+    "name": "Grow Digital Revenue",
+    "description": "Increase digital revenue streams while improving customer experience.",
+    "lifecycle": "target",
+    "owner": "Strategy Office",
+    "tags": ["strategy", "growth"],
+    "attributes": {
+      "timeHorizon": "FY2026",
+      "metric": "Digital revenue mix"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-platform-commerce",
+    "type": "Platform",
+    "subtype": "Business Platform",
+    "name": "Digital Commerce Platform",
+    "description": "Shared platform that powers customer engagement and order orchestration.",
+    "lifecycle": "active",
+    "owner": "Enterprise Platforms",
+    "tags": ["platform", "commerce"],
+    "attributes": {
+      "domain": "Customer",
+      "criticality": "high"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-initiative-modernization",
+    "type": "Initiative",
+    "subtype": "Program",
+    "name": "Customer Modernization Program",
+    "description": "Portfolio initiative delivering a unified customer experience roadmap.",
+    "lifecycle": "active",
+    "owner": "Transformation Office",
+    "tags": ["initiative", "modernization"],
+    "attributes": {
+      "budget": "2.5M",
+      "sponsor": "Chief Digital Officer"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-org-sales",
+    "type": "Organization",
+    "subtype": "Business Unit",
+    "name": "Global Sales",
+    "description": "Business unit responsible for digital pipeline and revenue growth.",
+    "lifecycle": "active",
+    "owner": "COO",
+    "tags": ["org", "sales"],
+    "attributes": {
+      "region": "Global",
+      "headcount": "420"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-cap-order-to-cash",
+    "type": "Business Capability",
+    "subtype": "Core Capability",
+    "name": "Order to Cash",
+    "description": "Capability covering order processing through payment collection.",
+    "lifecycle": "target",
+    "owner": "Business Architecture",
+    "tags": ["capability", "revenue"],
+    "attributes": {
+      "domain": "Revenue",
+      "priority": "2026"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-context-order-journey",
+    "type": "Business Context",
+    "subtype": "Customer Journey",
+    "name": "Digital Purchase Journey",
+    "description": "End-to-end customer journey from discovery through fulfillment and billing.",
+    "lifecycle": "active",
+    "owner": "Customer Experience",
+    "tags": ["journey", "customer"],
+    "attributes": {
+      "segment": "B2B",
+      "channel": "Digital"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-data-customer",
+    "type": "Data Object",
+    "subtype": "Master Data",
+    "name": "Customer Profile",
+    "description": "Golden customer profile used across commerce, service, and billing domains.",
+    "lifecycle": "active",
+    "owner": "Data Governance",
+    "tags": ["data", "customer"],
+    "attributes": {
+      "sensitivity": "confidential",
+      "retention": "7 years"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
     "id": "fs-app-crm",
     "type": "Application",
+    "subtype": "Business Application",
     "name": "Customer CRM",
     "description": "Central CRM used by sales and support teams.",
     "lifecycle": "active",
@@ -15,31 +128,81 @@
     "updatedAt": "2026-03-21T00:00:00.000Z"
   },
   {
-    "id": "fs-app-billing",
-    "type": "Application",
-    "name": "Billing Platform",
-    "description": "Handles invoicing and payment reconciliation.",
+    "id": "fs-interface-customer-api",
+    "type": "Interface",
+    "subtype": "API",
+    "name": "Customer API",
+    "description": "Primary integration interface exposing customer and order services.",
     "lifecycle": "active",
-    "owner": "Finance IT",
-    "tags": ["finance"],
+    "owner": "Integration Team",
+    "tags": ["api", "integration"],
     "attributes": {
-      "vendor": "Northwind",
-      "criticality": "medium"
+      "protocol": "REST",
+      "auth": "OAuth2"
     },
     "createdAt": "2026-03-21T00:00:00.000Z",
     "updatedAt": "2026-03-21T00:00:00.000Z"
   },
   {
-    "id": "fs-cap-order-to-cash",
-    "type": "BusinessCapability",
-    "name": "Order to Cash",
-    "description": "Capability covering order processing through payment collection.",
-    "lifecycle": "target",
-    "owner": "Business Architecture",
-    "tags": ["capability"],
+    "id": "fs-provider-cloud",
+    "type": "Provider",
+    "subtype": "Cloud Provider",
+    "name": "Fabrikam Cloud",
+    "description": "Strategic provider supplying managed hosting and AI platform services.",
+    "lifecycle": "active",
+    "owner": "Vendor Management",
+    "tags": ["provider", "cloud"],
     "attributes": {
-      "domain": "Revenue",
-      "priority": "2026"
+      "contract": "Enterprise",
+      "tier": "Strategic"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-itcomponent-crm-saas",
+    "type": "IT Component",
+    "subtype": "SaaS",
+    "name": "CRM SaaS Tenant",
+    "description": "Hosted SaaS component delivering core CRM capabilities.",
+    "lifecycle": "active",
+    "owner": "CRM Platform Team",
+    "tags": ["saas", "crm"],
+    "attributes": {
+      "deployment": "multi-tenant",
+      "serviceLevel": "99.9%"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-techcategory-crm",
+    "type": "Tech Category",
+    "subtype": "Business Technology",
+    "name": "CRM Technology",
+    "description": "Technology category grouping customer relationship management tooling.",
+    "lifecycle": "active",
+    "owner": "Enterprise Architecture",
+    "tags": ["technology", "crm"],
+    "attributes": {
+      "domain": "Customer",
+      "standard": "Preferred"
+    },
+    "createdAt": "2026-03-21T00:00:00.000Z",
+    "updatedAt": "2026-03-21T00:00:00.000Z"
+  },
+  {
+    "id": "fs-system-billing",
+    "type": "System",
+    "subtype": "External System",
+    "name": "Billing Core System",
+    "description": "External enterprise system used for invoicing and payment reconciliation.",
+    "lifecycle": "active",
+    "owner": "Finance IT",
+    "tags": ["billing", "system"],
+    "attributes": {
+      "integrationPattern": "event-driven",
+      "hosting": "vendor-managed"
     },
     "createdAt": "2026-03-21T00:00:00.000Z",
     "updatedAt": "2026-03-21T00:00:00.000Z"

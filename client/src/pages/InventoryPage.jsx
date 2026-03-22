@@ -37,6 +37,7 @@ export default function InventoryPage() {
               </div>
               <div className="meta-column">
                 <span>{factSheet.type}</span>
+                <span>{factSheet.subtype || 'No subtype'}</span>
                 <span>{factSheet.lifecycle}</span>
               </div>
             </Link>

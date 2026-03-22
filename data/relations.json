@@ -1,14 +1,128 @@
 [
   {
-    "id": "rel-crm-billing",
-    "sourceId": "fs-app-crm",
-    "targetId": "fs-app-billing",
-    "type": "interfacesWith"
+    "id": "rel-org-objective",
+    "sourceId": "fs-org-sales",
+    "targetId": "fs-objective-growth",
+    "type": "owns"
   },
   {
-    "id": "rel-cap-crm",
+    "id": "rel-objective-platform",
+    "sourceId": "fs-objective-growth",
+    "targetId": "fs-platform-commerce",
+    "type": "supports"
+  },
+  {
+    "id": "rel-platform-initiative",
+    "sourceId": "fs-platform-commerce",
+    "targetId": "fs-initiative-modernization",
+    "type": "affects"
+  },
+  {
+    "id": "rel-initiative-capability",
+    "sourceId": "fs-initiative-modernization",
+    "targetId": "fs-cap-order-to-cash",
+    "type": "improves"
+  },
+  {
+    "id": "rel-initiative-context",
+    "sourceId": "fs-initiative-modernization",
+    "targetId": "fs-context-order-journey",
+    "type": "affects"
+  },
+  {
+    "id": "rel-org-capability",
+    "sourceId": "fs-org-sales",
+    "targetId": "fs-cap-order-to-cash",
+    "type": "uses"
+  },
+  {
+    "id": "rel-org-context",
+    "sourceId": "fs-org-sales",
+    "targetId": "fs-context-order-journey",
+    "type": "owns"
+  },
+  {
+    "id": "rel-org-data",
+    "sourceId": "fs-org-sales",
+    "targetId": "fs-data-customer",
+    "type": "owns"
+  },
+  {
+    "id": "rel-cap-context",
+    "sourceId": "fs-cap-order-to-cash",
+    "targetId": "fs-context-order-journey",
+    "type": "associatedWith"
+  },
+  {
+    "id": "rel-cap-application",
     "sourceId": "fs-cap-order-to-cash",
     "targetId": "fs-app-crm",
     "type": "supports"
+  },
+  {
+    "id": "rel-app-data",
+    "sourceId": "fs-app-crm",
+    "targetId": "fs-data-customer",
+    "type": "CRUD"
+  },
+  {
+    "id": "rel-app-interface",
+    "sourceId": "fs-app-crm",
+    "targetId": "fs-interface-customer-api",
+    "type": "provides"
+  },
+  {
+    "id": "rel-interface-system",
+    "sourceId": "fs-interface-customer-api",
+    "targetId": "fs-system-billing",
+    "type": "uses"
+  },
+  {
+    "id": "rel-context-app",
+    "sourceId": "fs-context-order-journey",
+    "targetId": "fs-app-crm",
+    "type": "affects"
+  },
+  {
+    "id": "rel-context-data",
+    "sourceId": "fs-context-order-journey",
+    "targetId": "fs-data-customer",
+    "type": "transfers"
+  },
+  {
+    "id": "rel-provider-itcomponent",
+    "sourceId": "fs-provider-cloud",
+    "targetId": "fs-itcomponent-crm-saas",
+    "type": "offers"
+  },
+  {
+    "id": "rel-itcomponent-app",
+    "sourceId": "fs-itcomponent-crm-saas",
+    "targetId": "fs-app-crm",
+    "type": "implements"
+  },
+  {
+    "id": "rel-itcomponent-techcategory",
+    "sourceId": "fs-itcomponent-crm-saas",
+    "targetId": "fs-techcategory-crm",
+    "type": "belongsTo"
+  },
+  {
+    "id": "rel-interface-techcategory",
+    "sourceId": "fs-interface-customer-api",
+    "targetId": "fs-techcategory-crm",
+    "type": "runsOn"
+  },
+  {
+    "id": "rel-system-techcategory",
+    "sourceId": "fs-system-billing",
+    "targetId": "fs-techcategory-crm",
+    "type": "uses"
+  },
+  {
+    "id": "rel-initiative-app",
+    "sourceId": "fs-initiative-modernization",
+    "targetId": "fs-app-crm",
+    "type": "affects"
   }
 ]
